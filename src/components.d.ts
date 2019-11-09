@@ -20,7 +20,7 @@ export namespace Components {
   interface F4Module {}
   interface F4Path {
     'addRoute': Function;
-    'exact': Boolean;
+    'exact': boolean;
     'moduleName': string;
     'path': string;
     'routes': Route;
@@ -175,7 +175,7 @@ declare namespace LocalJSX {
   interface F4Module {}
   interface F4Path {
     'addRoute'?: Function;
-    'exact'?: Boolean;
+    'exact'?: boolean;
     'moduleName'?: string;
     'path'?: string;
     'routes'?: Route;

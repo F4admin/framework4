@@ -2,10 +2,11 @@ import { h } from '@stencil/core'
 import { createProviderConsumer } from '@stencil/state-tunnel'
 
 export interface Route {
-    route       : String,
-    title       : String,
+    route       : string,
+    title       : string,
+    path        : string,
     component   : HTMLCollection
-    exact       : Boolean
+    exact       : boolean
 }
 
 export interface State {

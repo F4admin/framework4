@@ -1,4 +1,4 @@
-import { Component, State, h, Method, Watch } from '@stencil/core'
+import { Component, State, h, Watch } from '@stencil/core'
 import ModuleTunnel, { Route, State as ModuleState } from '../../utils/moduleTunnel'
 
 @Component({
@@ -18,14 +18,18 @@ export class Module {
             <stencil-route-switch>
                 {
                     this.routes.map(value => (
-                        <stencil-route url="/test" routeRender={() =>
-                            Array.from(value.component)
-                            .map(child => {
-                                // console.log(JSON.stringify(child))
-                                // return <div>{ JSON.stringify(child) }</div>
-                                return <div innerHTML={child.outerHTML} />
-                            })
-                        }></stencil-route>
+                        <stencil-route 
+                            url={ value.path }
+                            routeRender={() =>
+                                Array.from(value.component)
+                                .map(child => {
+                                    // console.log(JSON.stringify(child))
+                                    // return <div>{ JSON.stringify(child) }</div>
+                                    return <div innerHTML={child.outerHTML} />
+                                })
+                            }
+                            exact={ value.exact }
+                        ></stencil-route>
                     ))
                 }
                 {/* <stencil-route url="/test" routeRender={() =>
@@ -53,7 +57,6 @@ export class Module {
                     </stencil-router>
                 </div>
                 <div>
-                    <stencil-route-link url="/test">Test link1</stencil-route-link>
                     {/* <slot /> */}
                 </div>
             </ModuleTunnel.Provider>

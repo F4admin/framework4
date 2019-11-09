@@ -9,14 +9,15 @@ export class Path {
     @Prop() addRoute: Function
     @Prop() path: string
     @Prop() moduleName: string
-    @Prop() exact: Boolean
+    @Prop() exact: boolean
     @Element() el: HTMLElement
     
     componentWillLoad() {
         this.addRoute({
             path        : this.path,
             title       : this.moduleName,
-            component   : this.el.children
+            component   : this.el.children,
+            exact       : this.exact
         })
         // console.log(this.routes)
         // console.log(this.el.children)
