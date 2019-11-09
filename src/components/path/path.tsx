@@ -9,7 +9,7 @@ export class Path {
     @Prop() addRoute: Function
     @Prop() path: string
     @Prop() moduleName: string
-    @Prop() exact: boolean
+    @Prop() exact?: boolean
     @Element() el: HTMLElement
     
     componentWillLoad() {

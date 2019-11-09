@@ -28,7 +28,7 @@ export class Module {
                                     return <div innerHTML={child.outerHTML} />
                                 })
                             }
-                            exact={ value.exact }
+                            exact={ !!value.exact }
                         ></stencil-route>
                     ))
                 }
