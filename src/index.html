@@ -16,15 +16,19 @@
   <f4-table /> -->
   <!-- <test-demo-links />
   <router-demo-app /> -->
-  <f4-module>
+  <f4-module endpoint="http://webserver.fanimate.develbmt.com/">
     <f4-path module-name="test" path="/test">
       <my-component first="Stencil Path1" last="'Don't call me a framework' JS"></my-component>
     </f4-path>
     <f4-path module-name="test2" path="/test2">
       <my-component first="Stencil Path2" last="'Don't call me a framework' JS"></my-component>
     </f4-path>
+    <f4-path module-name="table" path="/table">
+      <f4-table></f4-table>
+    </f4-path>
   </f4-module>
   <stencil-route-link url="/test">Test link1</stencil-route-link>
   <stencil-route-link url="/test2">Test link2</stencil-route-link>
+  <stencil-route-link url="/table">Table Example</stencil-route-link>
 </body>
 </html>

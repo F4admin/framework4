@@ -1,12 +1,20 @@
-import { Component, State, h, Watch } from '@stencil/core'
+import { Component, State, h, Watch, Prop } from '@stencil/core'
 import ModuleTunnel, { Route, State as ModuleState } from '../../utils/moduleTunnel'
+import apolloClient, { ApolloClient } from '../../utils/apollo'
 
 @Component({
     tag     : 'f4-module',
     shadow  : true
 })
 export class Module {
+    @Prop() endpoint: string = ''
+
     @State() routes: Route[] = []
+    @State() client: ApolloClient
+
+    async componentWillLoad() {
+        this.client = apolloClient({ url: this.endpoint})
+    }
 
     addRoute = (route: Route) => {
         this.routes = [...this.routes, route]
@@ -45,7 +53,8 @@ export class Module {
     render () {
         const moduleState: ModuleState = {
             routes      : this.routes,
-            addRoute    : this.addRoute
+            addRoute    : this.addRoute,
+            client      : this.client
         }
         return (
             <ModuleTunnel.Provider state={ moduleState }>

@@ -17,7 +17,9 @@ import {
 } from '@stencil/router';
 
 export namespace Components {
-  interface F4Module {}
+  interface F4Module {
+    'endpoint': string;
+  }
   interface F4Path {
     'addRoute': Function;
     'exact'?: boolean;
@@ -172,7 +174,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface F4Module {}
+  interface F4Module {
+    'endpoint'?: string;
+  }
   interface F4Path {
     'addRoute'?: Function;
     'exact'?: boolean;

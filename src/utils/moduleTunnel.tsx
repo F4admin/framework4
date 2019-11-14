@@ -1,5 +1,6 @@
 import { h } from '@stencil/core'
 import { createProviderConsumer } from '@stencil/state-tunnel'
+import { ApolloClient } from './apollo'
 
 export interface Route {
     route       : string,
@@ -11,7 +12,8 @@ export interface Route {
 
 export interface State {
     routes      : Array<Route>,
-    addRoute    : Function
+    addRoute    : Function,
+    client?      : ApolloClient
 }
 
 export default createProviderConsumer<State>({
