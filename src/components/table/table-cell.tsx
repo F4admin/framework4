@@ -9,11 +9,13 @@ export class TableCell {
     @Prop() accessor    : string
     @Prop() columns     : Array<Column>
     @Prop() addColumn   : Function
+    @Prop() search?     : boolean
 
     componentWillLoad () {
         this.addColumn({
-            header  : this.header,
-            accessor : this.accessor
+            header      : this.header,
+            accessor    : this.accessor,
+            search      : !!this.search
         })
     }
 

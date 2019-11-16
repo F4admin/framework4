@@ -40,6 +40,12 @@ export namespace Components {
     'addColumn': Function;
     'columns': Array<Column>;
     'header': string;
+    'search'?: boolean;
+  }
+  interface F4TableSearch {
+    'columns': Column[];
+    'editWhere': Function;
+    'where': any;
   }
   interface MyComponent {
     /**
@@ -116,6 +122,12 @@ declare global {
     new (): HTMLF4TableCellElement;
   };
 
+  interface HTMLF4TableSearchElement extends Components.F4TableSearch, HTMLStencilElement {}
+  var HTMLF4TableSearchElement: {
+    prototype: HTMLF4TableSearchElement;
+    new (): HTMLF4TableSearchElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
@@ -180,6 +192,7 @@ declare global {
     'f4-path': HTMLF4PathElement;
     'f4-table': HTMLF4TableElement;
     'f4-table-cell': HTMLF4TableCellElement;
+    'f4-table-search': HTMLF4TableSearchElement;
     'my-component': HTMLMyComponentElement;
     'router-demo-app': HTMLRouterDemoAppElement;
     'test-deep-component': HTMLTestDeepComponentElement;
@@ -214,6 +227,12 @@ declare namespace LocalJSX {
     'addColumn'?: Function;
     'columns'?: Array<Column>;
     'header'?: string;
+    'search'?: boolean;
+  }
+  interface F4TableSearch {
+    'columns'?: Column[];
+    'editWhere'?: Function;
+    'where'?: any;
   }
   interface MyComponent {
     /**
@@ -267,6 +286,7 @@ declare namespace LocalJSX {
     'f4-path': F4Path;
     'f4-table': F4Table;
     'f4-table-cell': F4TableCell;
+    'f4-table-search': F4TableSearch;
     'my-component': MyComponent;
     'router-demo-app': RouterDemoApp;
     'test-deep-component': TestDeepComponent;
@@ -290,6 +310,7 @@ declare module "@stencil/core" {
       'f4-path': LocalJSX.F4Path & JSXBase.HTMLAttributes<HTMLF4PathElement>;
       'f4-table': LocalJSX.F4Table & JSXBase.HTMLAttributes<HTMLF4TableElement>;
       'f4-table-cell': LocalJSX.F4TableCell & JSXBase.HTMLAttributes<HTMLF4TableCellElement>;
+      'f4-table-search': LocalJSX.F4TableSearch & JSXBase.HTMLAttributes<HTMLF4TableSearchElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
       'router-demo-app': LocalJSX.RouterDemoApp & JSXBase.HTMLAttributes<HTMLRouterDemoAppElement>;
       'test-deep-component': LocalJSX.TestDeepComponent & JSXBase.HTMLAttributes<HTMLTestDeepComponentElement>;

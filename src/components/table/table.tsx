@@ -33,8 +33,20 @@ export class Table {
         this._fetchData()
     }
 
+    @Watch('where')
+    whereUpdated () {
+        this._fetchData()
+    }
+
     addColumn = (column: Column) => {
         this.columns = [...this.columns, column]
+    }
+
+    editWhere = (where: any) => {
+        this.where = {
+            ...this.where,
+            where
+        }
     }
 
     _handleDot = path => {
@@ -158,10 +170,13 @@ export class Table {
     render () {
         const tableState: TableState = {
             columns     : this.columns,
-            addColumn   : this.addColumn
+            addColumn   : this.addColumn,
+            where       : this.where,
+            editWhere   : this.editWhere
         }
         return (
             <TableTunnel.Provider state={ tableState }>
+                <slot name="top" />
                 <table>
                     <tr>
                         {
@@ -182,6 +197,7 @@ export class Table {
                         ))
                     }
                 </table>
+                <slot name="bottom" />
             </TableTunnel.Provider>
         )
     }
