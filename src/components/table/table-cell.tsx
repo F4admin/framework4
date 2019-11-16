@@ -1,5 +1,5 @@
 import { Component, h, Prop, Host } from '@stencil/core'
-import TableModule, { Column } from '../../utils/tableTunnel'
+import TableTunnel, { Column } from '../../utils/tableTunnel'
 
 @Component({
     tag: 'f4-table-cell'
@@ -24,4 +24,4 @@ export class TableCell {
     }
 }
 
-TableModule.injectProps(TableCell, ['columns', 'addColumn'])
+TableTunnel.injectProps(TableCell, ['columns', 'addColumn'])
