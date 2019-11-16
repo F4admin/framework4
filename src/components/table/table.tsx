@@ -10,12 +10,13 @@ export class Table {
     @Prop() query           : string = ''
     @Prop() queryConnection : string = ''
     @Prop() graphqlApi      : any = {}
+    @Prop() pageSize        : number = 10
     @State() columns        : Array<Column> = []
     @State() isConnection   : boolean
     @State() loading        : boolean = true
     @State() data           : Array<any> = []
     @State() count          : number = 0
-    @State() pageSize       : number = 10
+    // @State() pageSize       : number = 10
     @State() pages          : number = 0
     @State() page           : number = 0
     @State() sorted         : Array<any> = []
@@ -38,6 +39,11 @@ export class Table {
         this._fetchData()
     }
 
+    @Watch('page')
+    pageUpdated () {
+        this._fetchData()
+    }
+
     addColumn = (column: Column) => {
         this.columns = [...this.columns, column]
     }
@@ -47,6 +53,10 @@ export class Table {
             ...this.where,
             where
         }
+    }
+
+    updatePage = (page: number) => {
+        this.page = page
     }
 
     _handleDot = path => {
@@ -172,7 +182,10 @@ export class Table {
             columns     : this.columns,
             addColumn   : this.addColumn,
             where       : this.where,
-            editWhere   : this.editWhere
+            editWhere   : this.editWhere,
+            page        : this.page,
+            pages       : this.pages,
+            updatePage  : this.updatePage
         }
         return (
             <TableTunnel.Provider state={ tableState }>

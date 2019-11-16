@@ -17,7 +17,6 @@ export class Module {
     async componentWillLoad() {
         this.client = apolloClient({ url: this.endpoint})
         this.graphqlApi = await GraphqlOrmCreate(this.client)
-        console.log('module loaded', this.graphqlApi.countries)
     }
 
     addRoute = (route: Route) => {

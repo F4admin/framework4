@@ -29,7 +29,7 @@ export class TableSearch {
 
     render () {
         return (
-            <input value={ this.value } onInput={ this._handleChange } />
+            <input value={ this.value } onInput={ this._handleChange } ></input>
         )
     }
 }

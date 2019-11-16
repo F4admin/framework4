@@ -32,6 +32,7 @@ export namespace Components {
   }
   interface F4Table {
     'graphqlApi': any;
+    'pageSize': number;
     'query': string;
     'queryConnection': string;
   }
@@ -41,6 +42,11 @@ export namespace Components {
     'columns': Array<Column>;
     'header': string;
     'search'?: boolean;
+  }
+  interface F4TablePagination {
+    'page': number;
+    'pages': number;
+    'updatePage': Function;
   }
   interface F4TableSearch {
     'columns': Column[];
@@ -122,6 +128,12 @@ declare global {
     new (): HTMLF4TableCellElement;
   };
 
+  interface HTMLF4TablePaginationElement extends Components.F4TablePagination, HTMLStencilElement {}
+  var HTMLF4TablePaginationElement: {
+    prototype: HTMLF4TablePaginationElement;
+    new (): HTMLF4TablePaginationElement;
+  };
+
   interface HTMLF4TableSearchElement extends Components.F4TableSearch, HTMLStencilElement {}
   var HTMLF4TableSearchElement: {
     prototype: HTMLF4TableSearchElement;
@@ -192,6 +204,7 @@ declare global {
     'f4-path': HTMLF4PathElement;
     'f4-table': HTMLF4TableElement;
     'f4-table-cell': HTMLF4TableCellElement;
+    'f4-table-pagination': HTMLF4TablePaginationElement;
     'f4-table-search': HTMLF4TableSearchElement;
     'my-component': HTMLMyComponentElement;
     'router-demo-app': HTMLRouterDemoAppElement;
@@ -219,6 +232,7 @@ declare namespace LocalJSX {
   }
   interface F4Table {
     'graphqlApi'?: any;
+    'pageSize'?: number;
     'query'?: string;
     'queryConnection'?: string;
   }
@@ -228,6 +242,11 @@ declare namespace LocalJSX {
     'columns'?: Array<Column>;
     'header'?: string;
     'search'?: boolean;
+  }
+  interface F4TablePagination {
+    'page'?: number;
+    'pages'?: number;
+    'updatePage'?: Function;
   }
   interface F4TableSearch {
     'columns'?: Column[];
@@ -286,6 +305,7 @@ declare namespace LocalJSX {
     'f4-path': F4Path;
     'f4-table': F4Table;
     'f4-table-cell': F4TableCell;
+    'f4-table-pagination': F4TablePagination;
     'f4-table-search': F4TableSearch;
     'my-component': MyComponent;
     'router-demo-app': RouterDemoApp;
@@ -310,6 +330,7 @@ declare module "@stencil/core" {
       'f4-path': LocalJSX.F4Path & JSXBase.HTMLAttributes<HTMLF4PathElement>;
       'f4-table': LocalJSX.F4Table & JSXBase.HTMLAttributes<HTMLF4TableElement>;
       'f4-table-cell': LocalJSX.F4TableCell & JSXBase.HTMLAttributes<HTMLF4TableCellElement>;
+      'f4-table-pagination': LocalJSX.F4TablePagination & JSXBase.HTMLAttributes<HTMLF4TablePaginationElement>;
       'f4-table-search': LocalJSX.F4TableSearch & JSXBase.HTMLAttributes<HTMLF4TableSearchElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
       'router-demo-app': LocalJSX.RouterDemoApp & JSXBase.HTMLAttributes<HTMLRouterDemoAppElement>;

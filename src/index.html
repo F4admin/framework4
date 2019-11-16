@@ -24,11 +24,16 @@
       <my-component first="Stencil Path2" last="'Don't call me a framework' JS"></my-component>
     </f4-path>
     <f4-path module-name="table" path="/table">
-      <f4-table query="countries">
-        <f4-table-search slot="top" />
-        <f4-table-cell header="ID" accessor="id" />
-        <f4-table-cell header="Nombre" accessor="name" search />
-        <f4-table-cell header="Identificador" accessor="identifier" />
+      <f4-table query-connection="countriesConnection" page-size=1>
+        <div slot="top">
+          <f4-table-search></f4-table-search>
+        </div>
+        <div slot="bottom">
+          <f4-table-pagination></f4-table-pagination>
+        </div>
+        <f4-table-cell header="ID" accessor="id"></f4-table-cell>
+        <f4-table-cell header="Nombre" accessor="name" search></f4-table-cell>
+        <f4-table-cell header="Identificador" accessor="identifier"></f4-table-cell>
       </f4-table>
     </f4-path>
   </f4-module>

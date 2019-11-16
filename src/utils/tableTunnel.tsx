@@ -11,7 +11,10 @@ export interface State {
     columns     : Array<Column>,
     addColumn   : Object,
     where       : any,
-    editWhere   : Function
+    editWhere   : Function,
+    pages       : number,
+    page        : number,
+    updatePage  : Function
 }
 
 export default createProviderConsumer<State>(
@@ -19,7 +22,10 @@ export default createProviderConsumer<State>(
         columns     : [],
         addColumn   : () => {},
         where       : {},
-        editWhere   : () => {}
+        editWhere   : () => {},
+        pages       : 0,
+        page        : 0,
+        updatePage  : () => {}
     },
     (subscribe, child) => (
         <context-subscriber subscribe={ subscribe } render={ child }/>
