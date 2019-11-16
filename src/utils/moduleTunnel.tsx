@@ -13,12 +13,14 @@ export interface Route {
 export interface State {
     routes      : Array<Route>,
     addRoute    : Function,
-    client?      : ApolloClient
+    client?     : ApolloClient,
+    graphqlApi  : any
 }
 
 export default createProviderConsumer<State>({
         routes      : [],
-        addRoute    : () => {}
+        addRoute    : () => {},
+        graphqlApi  : {}
     },
     (subscribe, child) => (
         <context-subscriber subscribe={ subscribe } render={ child }/>

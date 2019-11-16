@@ -1,6 +1,7 @@
 import { Component, State, h, Watch, Prop } from '@stencil/core'
 import ModuleTunnel, { Route, State as ModuleState } from '../../utils/moduleTunnel'
 import apolloClient, { ApolloClient } from '../../utils/apollo'
+import GraphqlOrmCreate from '../../utils/graphqlORM'
 
 @Component({
     tag     : 'f4-module',
@@ -11,9 +12,11 @@ export class Module {
 
     @State() routes: Route[] = []
     @State() client: ApolloClient
+    @State() graphqlApi: any = {}
 
     async componentWillLoad() {
         this.client = apolloClient({ url: this.endpoint})
+        this.graphqlApi = await GraphqlOrmCreate(this.client)
     }
 
     addRoute = (route: Route) => {
@@ -40,12 +43,6 @@ export class Module {
                         ></stencil-route>
                     ))
                 }
-                {/* <stencil-route url="/test" routeRender={() =>
-                    // value.component
-                    <div class="content-holder">
-                        <span>Test /</span>
-                    </div>
-                }></stencil-route> */}
             </stencil-route-switch>
         )
     }
@@ -54,7 +51,8 @@ export class Module {
         const moduleState: ModuleState = {
             routes      : this.routes,
             addRoute    : this.addRoute,
-            client      : this.client
+            client      : this.client,
+            graphqlApi  : this.graphqlApi
         }
         return (
             <ModuleTunnel.Provider state={ moduleState }>

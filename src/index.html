@@ -24,7 +24,11 @@
       <my-component first="Stencil Path2" last="'Don't call me a framework' JS"></my-component>
     </f4-path>
     <f4-path module-name="table" path="/table">
-      <f4-table></f4-table>
+      <f4-table query="countries">
+        <f4-table-cell header="ID" accessor="id" />
+        <f4-table-cell header="Nombre" accessor="name" />
+        <f4-table-cell header="Identificador" accessor="identifier" />
+      </f4-table>
     </f4-path>
   </f4-module>
   <stencil-route-link url="/test">Test link1</stencil-route-link>

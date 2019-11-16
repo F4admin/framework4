@@ -11,6 +11,9 @@ import {
   Route,
 } from './utils/moduleTunnel';
 import {
+  Column,
+} from './utils/tableTunnel';
+import {
   LocationSegments,
   MatchResults,
   RouterHistory,
@@ -27,7 +30,17 @@ export namespace Components {
     'path': string;
     'routes': Route;
   }
-  interface F4Table {}
+  interface F4Table {
+    'graphqlApi': any;
+    'query': string;
+    'queryConnection': string;
+  }
+  interface F4TableCell {
+    'accessor': string;
+    'addColumn': Function;
+    'columns': Array<Column>;
+    'header': string;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -97,6 +110,12 @@ declare global {
     new (): HTMLF4TableElement;
   };
 
+  interface HTMLF4TableCellElement extends Components.F4TableCell, HTMLStencilElement {}
+  var HTMLF4TableCellElement: {
+    prototype: HTMLF4TableCellElement;
+    new (): HTMLF4TableCellElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
@@ -160,6 +179,7 @@ declare global {
     'f4-module': HTMLF4ModuleElement;
     'f4-path': HTMLF4PathElement;
     'f4-table': HTMLF4TableElement;
+    'f4-table-cell': HTMLF4TableCellElement;
     'my-component': HTMLMyComponentElement;
     'router-demo-app': HTMLRouterDemoAppElement;
     'test-deep-component': HTMLTestDeepComponentElement;
@@ -184,7 +204,17 @@ declare namespace LocalJSX {
     'path'?: string;
     'routes'?: Route;
   }
-  interface F4Table {}
+  interface F4Table {
+    'graphqlApi'?: any;
+    'query'?: string;
+    'queryConnection'?: string;
+  }
+  interface F4TableCell {
+    'accessor'?: string;
+    'addColumn'?: Function;
+    'columns'?: Array<Column>;
+    'header'?: string;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -236,6 +266,7 @@ declare namespace LocalJSX {
     'f4-module': F4Module;
     'f4-path': F4Path;
     'f4-table': F4Table;
+    'f4-table-cell': F4TableCell;
     'my-component': MyComponent;
     'router-demo-app': RouterDemoApp;
     'test-deep-component': TestDeepComponent;
@@ -258,6 +289,7 @@ declare module "@stencil/core" {
       'f4-module': LocalJSX.F4Module & JSXBase.HTMLAttributes<HTMLF4ModuleElement>;
       'f4-path': LocalJSX.F4Path & JSXBase.HTMLAttributes<HTMLF4PathElement>;
       'f4-table': LocalJSX.F4Table & JSXBase.HTMLAttributes<HTMLF4TableElement>;
+      'f4-table-cell': LocalJSX.F4TableCell & JSXBase.HTMLAttributes<HTMLF4TableCellElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
       'router-demo-app': LocalJSX.RouterDemoApp & JSXBase.HTMLAttributes<HTMLRouterDemoAppElement>;
       'test-deep-component': LocalJSX.TestDeepComponent & JSXBase.HTMLAttributes<HTMLTestDeepComponentElement>;
