@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  FormInput,
+} from './utils/formTunnel';
+import {
   Route,
 } from './utils/moduleTunnel';
 import {
@@ -20,6 +23,14 @@ import {
 } from '@stencil/router';
 
 export namespace Components {
+  interface F4Form {}
+  interface F4FormInput {
+    'customValidator': Function;
+    'inputs': FormInput[];
+    'name': string;
+    'registerInput': Function;
+    'type': string;
+  }
   interface F4Module {
     'endpoint': string;
   }
@@ -103,6 +114,18 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLF4FormElement extends Components.F4Form, HTMLStencilElement {}
+  var HTMLF4FormElement: {
+    prototype: HTMLF4FormElement;
+    new (): HTMLF4FormElement;
+  };
+
+  interface HTMLF4FormInputElement extends Components.F4FormInput, HTMLStencilElement {}
+  var HTMLF4FormInputElement: {
+    prototype: HTMLF4FormInputElement;
+    new (): HTMLF4FormInputElement;
+  };
 
   interface HTMLF4ModuleElement extends Components.F4Module, HTMLStencilElement {}
   var HTMLF4ModuleElement: {
@@ -200,6 +223,8 @@ declare global {
     new (): HTMLTestRouteGuardElement;
   };
   interface HTMLElementTagNameMap {
+    'f4-form': HTMLF4FormElement;
+    'f4-form-input': HTMLF4FormInputElement;
     'f4-module': HTMLF4ModuleElement;
     'f4-path': HTMLF4PathElement;
     'f4-table': HTMLF4TableElement;
@@ -220,6 +245,14 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface F4Form {}
+  interface F4FormInput {
+    'customValidator'?: Function;
+    'inputs'?: FormInput[];
+    'name'?: string;
+    'registerInput'?: Function;
+    'type'?: string;
+  }
   interface F4Module {
     'endpoint'?: string;
   }
@@ -301,6 +334,8 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'f4-form': F4Form;
+    'f4-form-input': F4FormInput;
     'f4-module': F4Module;
     'f4-path': F4Path;
     'f4-table': F4Table;
@@ -326,6 +361,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'f4-form': LocalJSX.F4Form & JSXBase.HTMLAttributes<HTMLF4FormElement>;
+      'f4-form-input': LocalJSX.F4FormInput & JSXBase.HTMLAttributes<HTMLF4FormInputElement>;
       'f4-module': LocalJSX.F4Module & JSXBase.HTMLAttributes<HTMLF4ModuleElement>;
       'f4-path': LocalJSX.F4Path & JSXBase.HTMLAttributes<HTMLF4PathElement>;
       'f4-table': LocalJSX.F4Table & JSXBase.HTMLAttributes<HTMLF4TableElement>;
