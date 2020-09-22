@@ -18,7 +18,7 @@ import { ApolloLink } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 
-export declare type ApolloClient = ApolloClient<any>
+// export declare type ApolloClient = ApolloClient<any>
 
 const client = ({ url }) => {
     const cache = new InMemoryCache({

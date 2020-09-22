@@ -1,6 +1,7 @@
 import { h } from '@stencil/core'
 import { createProviderConsumer } from '@stencil/state-tunnel'
-import { ApolloClient } from './apollo'
+// import { ApolloClient } from './apollo'
+import { ApolloClient } from 'apollo-client'
 
 export interface Route {
     route       : string,
@@ -13,7 +14,7 @@ export interface Route {
 export interface State {
     routes      : Array<Route>,
     addRoute    : Function,
-    client?     : ApolloClient,
+    client?     : ApolloClient<any>,
     graphqlApi  : any
 }
 
