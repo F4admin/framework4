@@ -1,7 +1,6 @@
 import { h } from '@stencil/core'
 import { createProviderConsumer } from '@stencil/state-tunnel'
-// import { ApolloClient } from './apollo'
-import { ApolloClient } from 'apollo-client'
+import { ApolloClient } from './apollo'
 
 export interface Route {
     route       : string,

@@ -1,7 +1,6 @@
 import { Component, State, h, Watch, Prop } from '@stencil/core'
-import { ApolloClient } from 'apollo-client'
 import ModuleTunnel, { Route, State as ModuleState } from '../../utils/moduleTunnel'
-import apolloClient from '../../utils/apollo'
+import apolloClient, { ApolloClient } from '../../utils/apollo'
 import GraphqlOrmCreate from '../../utils/graphqlORM'
 
 @Component({
