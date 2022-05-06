@@ -23,9 +23,9 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^2.0.3",
-    "@stencil/eslint-plugin": "^0.3.1",
-    "@typescript-eslint/parser": "^4.2.0"
+    "@stencil/core": "^2.15.1",
+    "@stencil/eslint-plugin": "^0.4.0",
+    "@typescript-eslint/parser": "^5.22.0"
   },
   "license": "MIT",
   "dependencies": {
@@ -36,8 +36,8 @@
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
     "apollo-link-http": "^1.5.17",
-    "graphql": "^15.3.0",
-    "graphql-tag": "^2.11.0",
-    "shortid": "^2.2.15"
+    "graphql": "^16.4.0",
+    "graphql-tag": "^2.12.6",
+    "shortid": "^2.2.16"
   }
 }
