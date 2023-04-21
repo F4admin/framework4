@@ -1,5 +1,4 @@
-import { Component, State, h, Watch, Prop } from "@stencil/core"
-// import { createStaticRouter } from '@stencil-community/router'
+import { Component, State, h, Prop } from "@stencil/core"
 import { createRouter, Route } from 'stencil-router-v2'
 import apolloClient, { ApolloClient } from "../../utils/apollo"
 import GraphqlOrmCreate from "../../utils/graphqlORM"
@@ -58,7 +57,6 @@ export class Module {
 		return (
 			<div>
 				<div>
-					{/* <stencil-router>{this.generateRoutes()}</stencil-router> */}
                     {this.generateRoutes()}
 				</div>
 				<div>{/* <slot /> */}</div>
