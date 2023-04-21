@@ -8,11 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FormInput } from "./utils/formStore";
 import { Route } from "./utils/moduleStore";
 import { Column } from "./utils/tableStore";
-import { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
 export { FormInput } from "./utils/formStore";
 export { Route } from "./utils/moduleStore";
 export { Column } from "./utils/tableStore";
-export { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
 export namespace Components {
     interface F4Form {
     }
@@ -70,41 +68,6 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface RouterDemoApp {
-    }
-    interface TestDeepComponent {
-        "history"?: RouterHistory;
-        "location"?: LocationSegments;
-    }
-    interface TestDemoEight {
-    }
-    interface TestDemoFour {
-        "history"?: RouterHistory;
-        "match": MatchResults | null;
-        "pages": string[];
-    }
-    interface TestDemoLinks {
-    }
-    interface TestDemoSeven {
-        "history"?: RouterHistory;
-        "match"?: MatchResults;
-        "pages"?: string[];
-    }
-    interface TestDemoSix {
-        "history"?: RouterHistory;
-        "match": MatchResults | null;
-        "pages"?: string[];
-    }
-    interface TestDemoThree {
-        "history"?: RouterHistory;
-        "match": MatchResults | null;
-        "pages"?: string[];
-    }
-    interface TestRouteGuard {
-        "history"?: RouterHistory;
-        "match": MatchResults | null;
-        "pages"?: string[];
-    }
 }
 declare global {
     interface HTMLF4FormElement extends Components.F4Form, HTMLStencilElement {
@@ -161,60 +124,6 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLRouterDemoAppElement extends Components.RouterDemoApp, HTMLStencilElement {
-    }
-    var HTMLRouterDemoAppElement: {
-        prototype: HTMLRouterDemoAppElement;
-        new (): HTMLRouterDemoAppElement;
-    };
-    interface HTMLTestDeepComponentElement extends Components.TestDeepComponent, HTMLStencilElement {
-    }
-    var HTMLTestDeepComponentElement: {
-        prototype: HTMLTestDeepComponentElement;
-        new (): HTMLTestDeepComponentElement;
-    };
-    interface HTMLTestDemoEightElement extends Components.TestDemoEight, HTMLStencilElement {
-    }
-    var HTMLTestDemoEightElement: {
-        prototype: HTMLTestDemoEightElement;
-        new (): HTMLTestDemoEightElement;
-    };
-    interface HTMLTestDemoFourElement extends Components.TestDemoFour, HTMLStencilElement {
-    }
-    var HTMLTestDemoFourElement: {
-        prototype: HTMLTestDemoFourElement;
-        new (): HTMLTestDemoFourElement;
-    };
-    interface HTMLTestDemoLinksElement extends Components.TestDemoLinks, HTMLStencilElement {
-    }
-    var HTMLTestDemoLinksElement: {
-        prototype: HTMLTestDemoLinksElement;
-        new (): HTMLTestDemoLinksElement;
-    };
-    interface HTMLTestDemoSevenElement extends Components.TestDemoSeven, HTMLStencilElement {
-    }
-    var HTMLTestDemoSevenElement: {
-        prototype: HTMLTestDemoSevenElement;
-        new (): HTMLTestDemoSevenElement;
-    };
-    interface HTMLTestDemoSixElement extends Components.TestDemoSix, HTMLStencilElement {
-    }
-    var HTMLTestDemoSixElement: {
-        prototype: HTMLTestDemoSixElement;
-        new (): HTMLTestDemoSixElement;
-    };
-    interface HTMLTestDemoThreeElement extends Components.TestDemoThree, HTMLStencilElement {
-    }
-    var HTMLTestDemoThreeElement: {
-        prototype: HTMLTestDemoThreeElement;
-        new (): HTMLTestDemoThreeElement;
-    };
-    interface HTMLTestRouteGuardElement extends Components.TestRouteGuard, HTMLStencilElement {
-    }
-    var HTMLTestRouteGuardElement: {
-        prototype: HTMLTestRouteGuardElement;
-        new (): HTMLTestRouteGuardElement;
-    };
     interface HTMLElementTagNameMap {
         "f4-form": HTMLF4FormElement;
         "f4-form-input": HTMLF4FormInputElement;
@@ -225,15 +134,6 @@ declare global {
         "f4-table-pagination": HTMLF4TablePaginationElement;
         "f4-table-search": HTMLF4TableSearchElement;
         "my-component": HTMLMyComponentElement;
-        "router-demo-app": HTMLRouterDemoAppElement;
-        "test-deep-component": HTMLTestDeepComponentElement;
-        "test-demo-eight": HTMLTestDemoEightElement;
-        "test-demo-four": HTMLTestDemoFourElement;
-        "test-demo-links": HTMLTestDemoLinksElement;
-        "test-demo-seven": HTMLTestDemoSevenElement;
-        "test-demo-six": HTMLTestDemoSixElement;
-        "test-demo-three": HTMLTestDemoThreeElement;
-        "test-route-guard": HTMLTestRouteGuardElement;
     }
 }
 declare namespace LocalJSX {
@@ -293,41 +193,6 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface RouterDemoApp {
-    }
-    interface TestDeepComponent {
-        "history"?: RouterHistory;
-        "location"?: LocationSegments;
-    }
-    interface TestDemoEight {
-    }
-    interface TestDemoFour {
-        "history"?: RouterHistory;
-        "match"?: MatchResults | null;
-        "pages"?: string[];
-    }
-    interface TestDemoLinks {
-    }
-    interface TestDemoSeven {
-        "history"?: RouterHistory;
-        "match"?: MatchResults;
-        "pages"?: string[];
-    }
-    interface TestDemoSix {
-        "history"?: RouterHistory;
-        "match"?: MatchResults | null;
-        "pages"?: string[];
-    }
-    interface TestDemoThree {
-        "history"?: RouterHistory;
-        "match"?: MatchResults | null;
-        "pages"?: string[];
-    }
-    interface TestRouteGuard {
-        "history"?: RouterHistory;
-        "match"?: MatchResults | null;
-        "pages"?: string[];
-    }
     interface IntrinsicElements {
         "f4-form": F4Form;
         "f4-form-input": F4FormInput;
@@ -338,15 +203,6 @@ declare namespace LocalJSX {
         "f4-table-pagination": F4TablePagination;
         "f4-table-search": F4TableSearch;
         "my-component": MyComponent;
-        "router-demo-app": RouterDemoApp;
-        "test-deep-component": TestDeepComponent;
-        "test-demo-eight": TestDemoEight;
-        "test-demo-four": TestDemoFour;
-        "test-demo-links": TestDemoLinks;
-        "test-demo-seven": TestDemoSeven;
-        "test-demo-six": TestDemoSix;
-        "test-demo-three": TestDemoThree;
-        "test-route-guard": TestRouteGuard;
     }
 }
 export { LocalJSX as JSX };
@@ -362,15 +218,6 @@ declare module "@stencil/core" {
             "f4-table-pagination": LocalJSX.F4TablePagination & JSXBase.HTMLAttributes<HTMLF4TablePaginationElement>;
             "f4-table-search": LocalJSX.F4TableSearch & JSXBase.HTMLAttributes<HTMLF4TableSearchElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "router-demo-app": LocalJSX.RouterDemoApp & JSXBase.HTMLAttributes<HTMLRouterDemoAppElement>;
-            "test-deep-component": LocalJSX.TestDeepComponent & JSXBase.HTMLAttributes<HTMLTestDeepComponentElement>;
-            "test-demo-eight": LocalJSX.TestDemoEight & JSXBase.HTMLAttributes<HTMLTestDemoEightElement>;
-            "test-demo-four": LocalJSX.TestDemoFour & JSXBase.HTMLAttributes<HTMLTestDemoFourElement>;
-            "test-demo-links": LocalJSX.TestDemoLinks & JSXBase.HTMLAttributes<HTMLTestDemoLinksElement>;
-            "test-demo-seven": LocalJSX.TestDemoSeven & JSXBase.HTMLAttributes<HTMLTestDemoSevenElement>;
-            "test-demo-six": LocalJSX.TestDemoSix & JSXBase.HTMLAttributes<HTMLTestDemoSixElement>;
-            "test-demo-three": LocalJSX.TestDemoThree & JSXBase.HTMLAttributes<HTMLTestDemoThreeElement>;
-            "test-route-guard": LocalJSX.TestRouteGuard & JSXBase.HTMLAttributes<HTMLTestRouteGuardElement>;
         }
     }
 }

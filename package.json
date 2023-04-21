@@ -31,12 +31,12 @@
 		"jest": "^27.0.3",
 		"jest-cli": "^27.4.5",
 		"prettier": "2.8.7",
-		"puppeteer": "^19.10.0"
+		"puppeteer": "^19.10.0",
+		"stencil-router-v2": "^0.6.0"
 	},
 	"license": "MIT",
 	"dependencies": {
 		"@apollo/client": "^3.7.12",
-		"@stencil-community/router": "^1.0.2",
 		"@stencil/core": "^3.2.1",
 		"@stencil/state-tunnel": "^1.0.1",
 		"graphql": "^16.6.0",
