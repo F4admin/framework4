@@ -1,24 +1,24 @@
 import { Component, h, Prop, State } from '@stencil/core'
 import FormTunnel, { FormInput } from '../../utils/formTunnel'
 
-interface Validator {
-    validator   : Function,
-    error       : string
-}
+// interface Validator {
+//     validator   : Function,
+//     error       : string
+// }
 
-interface CommonValidators {
-    number: Validator
-}
+// interface CommonValidators {
+//     number: Validator
+// }
 
 
-const commonValidators: CommonValidators = {
-    number: {
-        validator: value => {
-            return !isNaN(parseFloat(value))
-        },
-        error: 'El valor ingresado no es un número válido'
-    }
-}
+// const commonValidators: CommonValidators = {
+//     number: {
+//         validator: value => {
+//             return !isNaN(parseFloat(value))
+//         },
+//         error: 'El valor ingresado no es un número válido'
+//     }
+// }
 
 // commonValidators['number'] = {
 //     validator: value => {
