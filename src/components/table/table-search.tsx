@@ -3,6 +3,7 @@ import tableStore, { Column } from "../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-search",
+    shadow: true,
 })
 export class TableSearch {
 	@Prop() where: any
@@ -27,6 +28,6 @@ export class TableSearch {
 	}
 
 	render() {
-		return <input value={this.value} onInput={this._handleChange}></input>
+		return <input value={this.value} onInput={this._handleChange} />
 	}
 }
