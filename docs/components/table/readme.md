@@ -1,9 +1,6 @@
 # f4-table-search
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -13,7 +10,6 @@
 | `editWhere` | --        |             | `Function` | `undefined` |
 | `where`     | `where`   |             | `any`      | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

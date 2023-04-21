@@ -1,9 +1,6 @@
 # f4-module
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -11,16 +8,16 @@
 | ---------- | ---------- | ----------- | -------- | ------- |
 | `endpoint` | `endpoint` |             | `string` | `''`    |
 
-
 ## Dependencies
 
 ### Depends on
 
-- stencil-route-switch
-- stencil-route
-- stencil-router
+-   stencil-route-switch
+-   stencil-route
+-   stencil-router
 
 ### Graph
+
 ```mermaid
 graph TD;
   f4-module --> stencil-route-switch
@@ -29,6 +26,6 @@ graph TD;
   style f4-module fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

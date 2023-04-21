@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+		/>
+		<title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/framework4.esm.js"></script>
-  <script nomodule src="/build/framework4.js"></script>
-
-</head>
-<body>
-  <f4-module endpoint="https://webserver.fanymate.com/">
-    <f4-path module-name="table" path="/table">
-      <f4-table query-connection="countriesConnection" page-size=10>
-        <div slot="top">
-          <f4-table-search></f4-table-search>
-        </div>
-        <div slot="bottom">
-          <f4-table-pagination></f4-table-pagination>
-        </div>
-        <f4-table-cell header="ID" accessor="id"></f4-table-cell>
-        <f4-table-cell header="Nombre" accessor="name" search></f4-table-cell>
-        <f4-table-cell header="Identificador" accessor="identifier"></f4-table-cell>
-      </f4-table>
-    </f4-path>
-    <f4-path module-name="form" path="/form">
-      <f4-form>
-        <f4-form-input></f4-form-input>
-      </f4-form>
-    </f4-path>
-  </f4-module>
-  <stencil-route-link url="/table">Table Example</stencil-route-link>
-  <stencil-route-link url="/form">Form Example</stencil-route-link>
-</body>
+		<script type="module" src="/build/framework4.esm.js"></script>
+		<script nomodule src="/build/framework4.js"></script>
+	</head>
+	<body>
+		<f4-module endpoint="https://webserver.fanymate.com/">
+			<f4-path module-name="table" path="/table">
+				<f4-table query-connection="countriesConnection" page-size="10">
+					<div slot="top">
+						<f4-table-search></f4-table-search>
+					</div>
+					<div slot="bottom">
+						<f4-table-pagination></f4-table-pagination>
+					</div>
+					<f4-table-cell header="ID" accessor="id"></f4-table-cell>
+					<f4-table-cell
+						header="Nombre"
+						accessor="name"
+						search
+					></f4-table-cell>
+					<f4-table-cell
+						header="Identificador"
+						accessor="identifier"
+					></f4-table-cell>
+				</f4-table>
+			</f4-path>
+			<f4-path module-name="form" path="/form">
+				<f4-form>
+					<f4-form-input></f4-form-input>
+				</f4-form>
+			</f4-path>
+		</f4-module>
+		<stencil-route-link url="/table">Table Example</stencil-route-link>
+		<stencil-route-link url="/form">Form Example</stencil-route-link>
+	</body>
 </html>

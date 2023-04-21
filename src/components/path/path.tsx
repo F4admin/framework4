@@ -1,37 +1,35 @@
-import { Component, Prop, Element, h, Host } from '@stencil/core'
-import ModuleTunnel, { Route } from '../../utils/moduleTunnel'
+import { Component, Prop, Element, h, Host } from "@stencil/core"
+import ModuleTunnel, { Route } from "../../utils/moduleTunnel"
 
 @Component({
-    tag: 'f4-path'
+	tag: "f4-path",
 })
 export class Path {
-    @Prop() routes: Route
-    @Prop() addRoute: Function
-    @Prop() path: string
-    @Prop() moduleName: string
-    @Prop() exact?: boolean
-    @Element() el: HTMLElement
-    
-    componentWillLoad() {
-        this.addRoute({
-            path        : this.path,
-            title       : this.moduleName,
-            component   : this.el.children,
-            exact       : this.exact
-        })
-        // console.log(this.routes)
-        // console.log(this.el.children)
-    }
+	@Prop() routes: Route
+	@Prop() addRoute: Function
+	@Prop() path: string
+	@Prop() moduleName: string
+	@Prop() exact?: boolean
+	@Element() el: HTMLElement
 
-    // componentDidLoad() {
-    //     console.log(this.routes)
-    // }
+	componentWillLoad() {
+		this.addRoute({
+			path: this.path,
+			title: this.moduleName,
+			component: this.el.children,
+			exact: this.exact,
+		})
+		// console.log(this.routes)
+		// console.log(this.el.children)
+	}
 
-    render () {
-        return (
-            <Host />
-        )
-    }
+	// componentDidLoad() {
+	//     console.log(this.routes)
+	// }
+
+	render() {
+		return <Host />
+	}
 }
 
-ModuleTunnel.injectProps(Path, ['routes', 'addRoute'])
+ModuleTunnel.injectProps(Path, ["routes", "addRoute"])

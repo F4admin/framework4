@@ -1,40 +1,42 @@
 {
-  "name": "framework4",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/framework4/framework4.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
-  "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
-    "dev": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
-  },
-  "devDependencies": {
-    "@stencil-community/eslint-plugin": "^0.5.0",
-    "@stencil/store": "^2.0.5",
-    "@typescript-eslint/parser": "^5.59.0"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "@apollo/client": "^3.7.12",
-    "@stencil/core": "^3.2.1",
-    "@stencil-community/router": "^1.0.2",
-    "@stencil/state-tunnel": "^1.0.1",
-    "graphql": "^16.6.0",
-    "graphql-tag": "^2.12.6",
-    "shortid": "^2.2.16"
-  }
+	"name": "framework4",
+	"version": "0.0.1",
+	"description": "Stencil Component Starter",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"es2015": "dist/esm/index.mjs",
+	"es2017": "dist/esm/index.mjs",
+	"types": "dist/types/index.d.ts",
+	"collection": "dist/collection/collection-manifest.json",
+	"collection:main": "dist/collection/index.js",
+	"unpkg": "dist/framework4/framework4.js",
+	"files": [
+		"dist/",
+		"loader/"
+	],
+	"scripts": {
+		"build": "stencil build --docs",
+		"start": "stencil build --dev --watch --serve",
+		"dev": "stencil build --dev --watch --serve",
+		"test": "stencil test --spec --e2e",
+		"test.watch": "stencil test --spec --e2e --watchAll",
+		"generate": "stencil generate",
+		"prettier": "prettier --write ."
+	},
+	"devDependencies": {
+		"@stencil-community/eslint-plugin": "^0.5.0",
+		"@stencil/store": "^2.0.5",
+		"@typescript-eslint/parser": "^5.59.0",
+		"prettier": "2.8.7"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"@apollo/client": "^3.7.12",
+		"@stencil-community/router": "^1.0.2",
+		"@stencil/core": "^3.2.1",
+		"@stencil/state-tunnel": "^1.0.1",
+		"graphql": "^16.6.0",
+		"graphql-tag": "^2.12.6",
+		"shortid": "^2.2.16"
+	}
 }

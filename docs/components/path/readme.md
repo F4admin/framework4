@@ -1,9 +1,6 @@
 # f4-path
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -15,7 +12,6 @@
 | `path`       | `path`        |             | `string`   | `undefined` |
 | `routes`     | --            |             | `Route`    | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

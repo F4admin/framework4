@@ -1,5 +1,5 @@
-import { Component, h, Prop, State } from '@stencil/core'
-import FormTunnel, { FormInput } from '../../utils/formTunnel'
+import { Component, h, Prop, State } from "@stencil/core"
+import FormTunnel, { FormInput } from "../../utils/formTunnel"
 
 // interface Validator {
 //     validator   : Function,
@@ -9,7 +9,6 @@ import FormTunnel, { FormInput } from '../../utils/formTunnel'
 // interface CommonValidators {
 //     number: Validator
 // }
-
 
 // const commonValidators: CommonValidators = {
 //     number: {
@@ -28,40 +27,44 @@ import FormTunnel, { FormInput } from '../../utils/formTunnel'
 // }
 
 @Component({
-    tag: 'f4-form-input'
+	tag: "f4-form-input",
 })
 export class Input {
-    @Prop() name            : string
-    @Prop() type            : string = 'text'
-    @Prop() inputs          : FormInput[]
-    @Prop() registerInput   : Function
-    @Prop() customValidator : Function
-    @State() value          : string
-    @State() currentInput   : FormInput
+	@Prop() name: string
+	@Prop() type: string = "text"
+	@Prop() inputs: FormInput[]
+	@Prop() registerInput: Function
+	@Prop() customValidator: Function
+	@State() value: string
+	@State() currentInput: FormInput
 
-    componentWillLoad () {
-        this.currentInput = {
-            name    : this.name,
-            type    : this.type,
-            validator   : this.customValidator ? this.customValidator : () => { return true }
-        }
-        this.registerInput(this.currentInput)
-    }
+	componentWillLoad() {
+		this.currentInput = {
+			name: this.name,
+			type: this.type,
+			validator: this.customValidator
+				? this.customValidator
+				: () => {
+						return true
+				  },
+		}
+		this.registerInput(this.currentInput)
+	}
 
-    _handleChange = event => {
-        this.value = event.target.value
-    }
+	_handleChange = (event) => {
+		this.value = event.target.value
+	}
 
-    render () {
-        return (
-            <input
-                name={ this.name }
-                value={ this.value }
-                type={ this.type }
-                onChange={ this._handleChange }
-            />
-        )
-    }
+	render() {
+		return (
+			<input
+				name={this.name}
+				value={this.value}
+				type={this.type}
+				onChange={this._handleChange}
+			/>
+		)
+	}
 }
 
-FormTunnel.injectProps(Input, ['inputs', 'registerInput'])
+FormTunnel.injectProps(Input, ["inputs", "registerInput"])
