@@ -8,7 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FormInput } from "./utils/formTunnel";
 import { Route } from "./utils/moduleTunnel";
 import { Column } from "./utils/tableTunnel";
-import { LocationSegments, MatchResults, RouterHistory } from "@stencil/router";
+import { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
+export { FormInput } from "./utils/formTunnel";
+export { Route } from "./utils/moduleTunnel";
+export { Column } from "./utils/tableTunnel";
+export { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
 export namespace Components {
     interface F4Form {
     }
