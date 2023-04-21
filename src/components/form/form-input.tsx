@@ -1,5 +1,5 @@
 import { Component, h, Prop, State } from "@stencil/core"
-import FormTunnel, { FormInput } from "../../utils/formTunnel"
+import formStore, { FormInput } from "../../utils/formStore"
 
 // interface Validator {
 //     validator   : Function,
@@ -48,7 +48,7 @@ export class Input {
 						return true
 				  },
 		}
-		this.registerInput(this.currentInput)
+		formStore.registerInput(this.currentInput)
 	}
 
 	_handleChange = (event) => {
@@ -67,4 +67,3 @@ export class Input {
 	}
 }
 
-FormTunnel.injectProps(Input, ["inputs", "registerInput"])

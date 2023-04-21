@@ -5,11 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FormInput } from "./utils/formTunnel";
+import { FormInput } from "./utils/formStore";
 import { Route } from "./utils/moduleStore";
 import { Column } from "./utils/tableStore";
 import { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
-export { FormInput } from "./utils/formTunnel";
+export { FormInput } from "./utils/formStore";
 export { Route } from "./utils/moduleStore";
 export { Column } from "./utils/tableStore";
 export { LocationSegments, MatchResults, RouterHistory } from "@stencil-community/router";
