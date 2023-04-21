@@ -1,6 +1,6 @@
 import { Component, h, Prop } from "@stencil/core"
 import shortid from "shortid"
-import TableTunnel from "../../utils/tableTunnel"
+import tableStore from "../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-pagination",
@@ -11,17 +11,17 @@ export class TablePagination {
 	@Prop() updatePage: Function
 
 	_handleChangePage = (value) => () => {
-		this.updatePage(value)
+		tableStore.updatePage(value)
 	}
 
 	_isCurrent = (value) => {
-		return value === this.page
+		return value === tableStore.page
 	}
 
 	render() {
 		return (
 			<div>
-				{Array.from(Array(this.pages).keys()).map((value) => (
+				{Array.from(Array(tableStore.pages).keys()).map((value) => (
 					<div
 						key={shortid.generate()}
 						onClick={this._handleChangePage(value)}
@@ -34,5 +34,3 @@ export class TablePagination {
 		)
 	}
 }
-
-TableTunnel.injectProps(TablePagination, ["page", "pages", "updatePage"])

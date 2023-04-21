@@ -1,10 +1,6 @@
 import { Component, h, Prop, State, Watch } from "@stencil/core"
-import TableTunnel, {
-	State as TableState,
-	Column,
-} from "../../utils/tableTunnel"
-import ModuleTunnel from "../../utils/moduleTunnel"
 import moduleStore from '../../utils/moduleStore'
+import tableStore, { Column } from '../../utils/tableStore'
 
 @Component({
 	tag: "f4-table",
@@ -192,17 +188,16 @@ export class Table {
 	}
 
 	render() {
-		const tableState: TableState = {
-			columns: this.columns,
-			addColumn: this.addColumn,
-			where: this.where,
-			editWhere: this.editWhere,
-			page: this.page,
-			pages: this.pages,
-			updatePage: this.updatePage,
-		}
+        tableStore.columns = this.columns
+        tableStore.addColumn = this.addColumn
+        tableStore.where = this.where
+        tableStore.editWhere = this.editWhere
+        tableStore.page = this.page
+        tableStore.pages = this.pages
+        tableStore.updatePage = this.updatePage
+
 		return (
-			<TableTunnel.Provider state={tableState}>
+			<div>
 				<slot name="top" />
 				<table>
 					<tr>
@@ -219,9 +214,7 @@ export class Table {
 					))}
 				</table>
 				<slot name="bottom" />
-			</TableTunnel.Provider>
+			</div>
 		)
 	}
 }
-
-ModuleTunnel.injectProps(Table, ["graphqlApi"])

@@ -1,5 +1,5 @@
 import { Component, h, Prop, State } from "@stencil/core"
-import TableTunnel, { Column } from "../../utils/tableTunnel"
+import tableStore, { Column } from "../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-search",
@@ -16,14 +16,13 @@ export class TableSearch {
 	}
 
 	_generateWhereSearch = (search) => {
-		const { columns } = this
-		const queryWhere = columns.reduce((accum, value) => {
+		const queryWhere = tableStore.columns.reduce((accum, value) => {
 			if (value.search) {
 				accum[`${value.accessor}_contains`] = search
 			}
 			return accum
 		}, {})
-		this.editWhere(queryWhere)
+		tableStore.editWhere(queryWhere)
 		console.log(queryWhere)
 	}
 
@@ -31,5 +30,3 @@ export class TableSearch {
 		return <input value={this.value} onInput={this._handleChange}></input>
 	}
 }
-
-TableTunnel.injectProps(TableSearch, ["where", "editWhere", "columns"])
