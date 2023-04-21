@@ -183,7 +183,7 @@ export class Table {
 			this.loading = false
 			this.count = count
 			this.data = data
-			console.log(data)
+			// console.log(data)
 		}
 	}
 
