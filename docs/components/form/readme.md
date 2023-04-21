@@ -1,6 +1,9 @@
 # f4-form-input
 
+
+
 <!-- Auto Generated Below -->
+
 
 ## Properties
 
@@ -10,8 +13,9 @@
 | `inputs`          | --        |             | `FormInput[]` | `undefined` |
 | `name`            | `name`    |             | `string`      | `undefined` |
 | `registerInput`   | --        |             | `Function`    | `undefined` |
-| `type`            | `type`    |             | `string`      | `'text'`    |
+| `type`            | `type`    |             | `string`      | `"text"`    |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
