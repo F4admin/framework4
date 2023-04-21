@@ -31,34 +31,27 @@ export class Module {
         moduleState.routes = this.routes
 	}   
 
-    generateRoutes() {
-        return (
-            <Router.Switch>
-                {moduleState.routes.map((value) => (
-                    <Route
-                        path={value.path}
-                        render={() =>
-                            Array.from(value.component).map((child) => {
-                                // console.log(JSON.stringify(child))
-                                // return <div>{ JSON.stringify(child) }</div>
-                                return <div innerHTML={child.outerHTML} />
-                            })
-                        }
-                        // exact={!!value.exact}
-                    ></Route>
-                ))}
-            </Router.Switch>
-        )
-    }
-
 	render() {        
-        console.log(this.routes)
         
 		return (
 			<div>
-				<div>
-                    {this.generateRoutes()}
-				</div>
+                <div>
+                    <Router.Switch>
+                        {moduleState.routes.map((value) => (
+                            <Route
+                                path={value.path}
+                                render={() =>
+                                    Array.from(value.component).map((child) => {
+                                        // console.log(JSON.stringify(child))
+                                        // return <div>{ JSON.stringify(child) }</div>
+                                        return <div innerHTML={child.outerHTML} />
+                                    })
+                                }
+                                // exact={!!value.exact}
+                            ></Route>
+                        ))}
+                    </Router.Switch>
+                </div>
 				<div>{/* <slot /> */}</div>
 			</div>
 		)
