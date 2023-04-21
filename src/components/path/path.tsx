@@ -1,5 +1,5 @@
 import { Component, Prop, Element, h, Host } from "@stencil/core"
-import ModuleTunnel, { Route } from "../../utils/moduleTunnel"
+import moduleState, { Route } from '../../utils/moduleStore'
 
 @Component({
 	tag: "f4-path",
@@ -13,12 +13,12 @@ export class Path {
 	@Element() el: HTMLElement
 
 	componentWillLoad() {
-		this.addRoute({
-			path: this.path,
-			title: this.moduleName,
-			component: this.el.children,
-			exact: this.exact,
-		})
+        moduleState.addRoute({
+            path: this.path,
+            title: this.moduleName,
+            component: this.el.children,
+            exact: this.exact,
+        })
 		// console.log(this.routes)
 		// console.log(this.el.children)
 	}
@@ -31,5 +31,3 @@ export class Path {
 		return <Host />
 	}
 }
-
-ModuleTunnel.injectProps(Path, ["routes", "addRoute"])

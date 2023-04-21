@@ -4,6 +4,7 @@ import TableTunnel, {
 	Column,
 } from "../../utils/tableTunnel"
 import ModuleTunnel from "../../utils/moduleTunnel"
+import moduleStore from '../../utils/moduleStore'
 
 @Component({
 	tag: "f4-table",
@@ -117,14 +118,14 @@ export class Table {
 
 	_getCountConnection = async (where) => {
 		// const { api, queryConnection, table } = this.props
-		const { graphqlApi, queryConnection } = this
+		const { queryConnection } = this
 		const info = `
         {
             aggregate{
                 count
             }
         }`
-		const data = await graphqlApi[queryConnection](where, info)
+		const data = await moduleStore.graphqlApi[queryConnection](where, info)
 		if (data && data.aggregate && data.aggregate.count) {
 			const {
 				aggregate: { count },
@@ -159,7 +160,6 @@ export class Table {
 
 	async _fetchData() {
 		const {
-			graphqlApi,
 			// search,
 			queryConnection,
 			query,
@@ -170,7 +170,7 @@ export class Table {
 		this.loading = true
 		// console.log(this.props)
 		// console.log(sorted, filtered)
-		if (!this.isEmpty(graphqlApi) && columns.length !== 0) {
+		if (!this.isEmpty(moduleStore.graphqlApi) && columns.length !== 0) {
 			const info = this._makeGraphInfo(columns)
 			const count = isConnection
 				? await this._getCountConnection(where)
@@ -181,9 +181,9 @@ export class Table {
 			queryWhere.skip = page * pageSize
 			const data = isConnection
 				? this._unfoldDataConnection(
-						await graphqlApi[queryConnection](queryWhere, info)
+						await moduleStore.graphqlApi[queryConnection](queryWhere, info)
 				  )
-				: await graphqlApi[query](queryWhere, info)
+				: await moduleStore.graphqlApi[query](queryWhere, info)
 			this.loading = false
 			this.count = count
 			this.data = data

@@ -1,10 +1,7 @@
 import { Component, State, h, Watch, Prop } from "@stencil/core"
-import ModuleTunnel, {
-	Route,
-	State as ModuleState,
-} from "../../utils/moduleTunnel"
 import apolloClient, { ApolloClient } from "../../utils/apollo"
 import GraphqlOrmCreate from "../../utils/graphqlORM"
+import moduleState, { Route } from '../../utils/moduleStore'
 
 @Component({
 	tag: "f4-module",
@@ -47,20 +44,19 @@ export class Module {
 		)
 	}
 
-	render() {
-		const moduleState: ModuleState = {
-			routes: this.routes,
-			addRoute: this.addRoute,
-			client: this.client,
-			graphqlApi: this.graphqlApi,
-		}
+	render() {        
+        moduleState.routes = this.routes
+        moduleState.addRoute = this.addRoute
+        moduleState.client = this.client
+        moduleState.graphqlApi = this.graphqlApi
+        
 		return (
-			<ModuleTunnel.Provider state={moduleState}>
+			<div>
 				<div>
 					<stencil-router>{this.generateRoutes()}</stencil-router>
 				</div>
 				<div>{/* <slot /> */}</div>
-			</ModuleTunnel.Provider>
+			</div>
 		)
 	}
 }
