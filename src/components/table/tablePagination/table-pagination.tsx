@@ -17,10 +17,16 @@ export class TablePagination {
 	}
 
     _handleNextPage = () => {
+        if (tableStore.page >= tableStore.pages - 1) {
+            return
+        }
         tableStore.updatePage(tableStore.page + 1)
     }
 
     _handlePreviousPage = () => {
+        if (tableStore.page === 0) {
+            return
+        }
         tableStore.updatePage(tableStore.page - 1)
     }
 
