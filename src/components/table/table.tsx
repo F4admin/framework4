@@ -205,18 +205,22 @@ export class Table {
 				
                 <div id="tableContainer">
                     <table>
-                        <tr>
-                            {this.columns.map((value) => (
-                                <th>{value.header}</th>
-                            ))}
-                        </tr>
-                        {this.data.map((row) => (
+                        <thead>
                             <tr>
                                 {this.columns.map((value) => (
-                                    <th>{row[value.accessor]}</th>
+                                    <th>{value.header}</th>
                                 ))}
                             </tr>
-                        ))}
+                        </thead>
+                        <tbody>
+                            {this.data.map((row) => (
+                                <tr>
+                                    {this.columns.map((value) => (
+                                        <th>{row[value.accessor]}</th>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
                 </div>
 

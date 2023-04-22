@@ -5,10 +5,31 @@
 
 #tableContainer {
     min-width: 500px;
+    margin: 15px 0px;
 
     & > table {
         width: 100%;
         overflow-x: auto;
+        font-weight: 300;
+
+        & > thead {
+            & > tr {
+                & > th {
+                    padding: 10px;
+                    border-bottom: 1px solid #cbd5e0;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        & > tbody {
+            & > tr {
+                & > th {
+                    font-weight: 300;
+                    text-align: left;
+                }
+            }
+        }
     }
 }
 
