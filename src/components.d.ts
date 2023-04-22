@@ -21,6 +21,9 @@ export namespace Components {
         "registerInput": Function;
         "type": string;
     }
+    interface F4Link {
+        "url": string;
+    }
     interface F4Module {
         "endpoint": string;
     }
@@ -82,6 +85,12 @@ declare global {
         prototype: HTMLF4FormInputElement;
         new (): HTMLF4FormInputElement;
     };
+    interface HTMLF4LinkElement extends Components.F4Link, HTMLStencilElement {
+    }
+    var HTMLF4LinkElement: {
+        prototype: HTMLF4LinkElement;
+        new (): HTMLF4LinkElement;
+    };
     interface HTMLF4ModuleElement extends Components.F4Module, HTMLStencilElement {
     }
     var HTMLF4ModuleElement: {
@@ -127,6 +136,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "f4-form": HTMLF4FormElement;
         "f4-form-input": HTMLF4FormInputElement;
+        "f4-link": HTMLF4LinkElement;
         "f4-module": HTMLF4ModuleElement;
         "f4-path": HTMLF4PathElement;
         "f4-table": HTMLF4TableElement;
@@ -145,6 +155,9 @@ declare namespace LocalJSX {
         "name"?: string;
         "registerInput"?: Function;
         "type"?: string;
+    }
+    interface F4Link {
+        "url"?: string;
     }
     interface F4Module {
         "endpoint"?: string;
@@ -196,6 +209,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "f4-form": F4Form;
         "f4-form-input": F4FormInput;
+        "f4-link": F4Link;
         "f4-module": F4Module;
         "f4-path": F4Path;
         "f4-table": F4Table;
@@ -211,6 +225,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "f4-form": LocalJSX.F4Form & JSXBase.HTMLAttributes<HTMLF4FormElement>;
             "f4-form-input": LocalJSX.F4FormInput & JSXBase.HTMLAttributes<HTMLF4FormInputElement>;
+            "f4-link": LocalJSX.F4Link & JSXBase.HTMLAttributes<HTMLF4LinkElement>;
             "f4-module": LocalJSX.F4Module & JSXBase.HTMLAttributes<HTMLF4ModuleElement>;
             "f4-path": LocalJSX.F4Path & JSXBase.HTMLAttributes<HTMLF4PathElement>;
             "f4-table": LocalJSX.F4Table & JSXBase.HTMLAttributes<HTMLF4TableElement>;

@@ -4,6 +4,7 @@ import tableStore from "../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-pagination",
+    shadow: true,
 })
 export class TablePagination {
 	@Prop() page: number
