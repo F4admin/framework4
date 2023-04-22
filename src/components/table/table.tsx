@@ -4,6 +4,7 @@ import tableStore, { Column } from '../../utils/tableStore'
 
 @Component({
 	tag: "f4-table",
+    styleUrl: "./table.scss",
 	shadow: true,
 })
 export class Table {
@@ -197,22 +198,27 @@ export class Table {
         tableStore.updatePage = this.updatePage
 
 		return (
-			<div>
-				<slot name="top" />
-				<table>
-					<tr>
-						{this.columns.map((value) => (
-							<th>{value.header}</th>
-						))}
-					</tr>
-					{this.data.map((row) => (
-						<tr>
-							{this.columns.map((value) => (
-								<th>{row[value.accessor]}</th>
-							))}
-						</tr>
-					))}
-				</table>
+			<div id="tableWrapper">
+                <div id="tableTopSlot">
+                    <slot name="top" />
+                </div>
+				
+                <div id="tableContainer">
+                    <table>
+                        <tr>
+                            {this.columns.map((value) => (
+                                <th>{value.header}</th>
+                            ))}
+                        </tr>
+                        {this.data.map((row) => (
+                            <tr>
+                                {this.columns.map((value) => (
+                                    <th>{row[value.accessor]}</th>
+                                ))}
+                            </tr>
+                        ))}
+                    </table>
+                </div>
 				<slot name="bottom" />
 			</div>
 		)

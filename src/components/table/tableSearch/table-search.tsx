@@ -1,8 +1,9 @@
 import { Component, h, Prop, State } from "@stencil/core"
-import tableStore, { Column } from "../../utils/tableStore"
+import tableStore, { Column } from "../../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-search",
+    styleUrl: "./table-search.scss",
     shadow: true,
 })
 export class TableSearch {
@@ -28,6 +29,13 @@ export class TableSearch {
 	}
 
 	render() {
-		return <input value={this.value} onInput={this._handleChange} />
+		return (
+            <div>
+                <label>
+                    Search:
+                    <input value={this.value} onInput={this._handleChange} />
+                </label>
+            </div>
+        )
 	}
 }

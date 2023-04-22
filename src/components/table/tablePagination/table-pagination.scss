@@ -1,0 +1,8 @@
+#paginationWrapper {
+    display: flex;
+    justify-content: center;
+    & > div {
+        cursor: pointer;
+        padding: 10px;
+    }
+}

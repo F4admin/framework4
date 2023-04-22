@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+#tableContainer {
+    min-width: 500px;
+
+    & > table {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+#tableTopSlot {
+    ::slotted(*) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    
+}

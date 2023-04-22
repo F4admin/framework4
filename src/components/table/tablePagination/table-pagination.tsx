@@ -1,9 +1,10 @@
 import { Component, h, Prop } from "@stencil/core"
 import shortid from "shortid"
-import tableStore from "../../utils/tableStore"
+import tableStore from "../../../utils/tableStore"
 
 @Component({
 	tag: "f4-table-pagination",
+    styleUrl: "./table-pagination.scss",
     shadow: true,
 })
 export class TablePagination {
@@ -21,7 +22,8 @@ export class TablePagination {
 
 	render() {
 		return (
-			<div>
+			<div id="paginationWrapper">
+                <div>Previous</div>
 				{Array.from(Array(tableStore.pages).keys()).map((value) => (
 					<div
 						key={shortid.generate()}
@@ -31,6 +33,7 @@ export class TablePagination {
 						{value + 1}
 					</div>
 				))}
+                <div>Next</div>
 			</div>
 		)
 	}
