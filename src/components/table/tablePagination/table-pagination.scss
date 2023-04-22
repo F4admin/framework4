@@ -6,3 +6,15 @@
         padding: 10px;
     }
 }
+
+.active {
+    background-color: #b7b7b7;
+    color: white;
+    border-radius: 0.25rem;
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: #b7b7b7;
+    border-radius: 0.25rem;
+}

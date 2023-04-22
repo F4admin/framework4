@@ -219,7 +219,10 @@ export class Table {
                         ))}
                     </table>
                 </div>
-				<slot name="bottom" />
+
+                <div id="tableBottomSlot">
+                    <slot name="bottom" />
+                </div>
 			</div>
 		)
 	}

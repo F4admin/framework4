@@ -16,14 +16,31 @@ export class TablePagination {
 		tableStore.updatePage(value)
 	}
 
+    _handleNextPage = () => {
+        tableStore.updatePage(tableStore.page + 1)
+    }
+
+    _handlePreviousPage = () => {
+        tableStore.updatePage(tableStore.page - 1)
+    }
+
 	_isCurrent = (value) => {
 		return value === tableStore.page
 	}
 
 	render() {
+
+        const first = tableStore.page !== 0
+        const last = tableStore.page !== tableStore.pages - 1
+
 		return (
 			<div id="paginationWrapper">
-                <div>Previous</div>
+                <div
+                    class={first ? "" : "disabled"}
+                    onClick={this._handlePreviousPage}
+                >
+                    Previous
+                </div>
 				{Array.from(Array(tableStore.pages).keys()).map((value) => (
 					<div
 						key={shortid.generate()}
@@ -33,7 +50,12 @@ export class TablePagination {
 						{value + 1}
 					</div>
 				))}
-                <div>Next</div>
+                <div
+                    class={last ? "" : "disabled"}
+                    onClick={this._handleNextPage}
+                >
+                    Next
+                </div>
 			</div>
 		)
 	}
