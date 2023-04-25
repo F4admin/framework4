@@ -3,15 +3,18 @@ import formStore, { FormInput } from '../../utils/formStore'
 
 @Component({
 	tag: "f4-form",
+    shadow: true,
 })
 export class Form {
-	@State() inputs: FormInput[]
+	@State() inputs: FormInput[] = []
 
 	registerInput = (input: FormInput) => {
 		this.inputs = [...this.inputs, input]
 	}
 
-	_handleSubmit = () => {}
+	_handleSubmit = () => {
+        console.log('submit')
+    }
 
 	render() {
         formStore.inputs = this.inputs

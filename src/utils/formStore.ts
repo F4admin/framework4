@@ -1,9 +1,14 @@
 import { createStore } from "@stencil/store"
 
+export interface Validator {
+    validator   : Function,
+    error?      : string
+}
+
 export interface FormInput {
 	name: string
 	type: string
-	validator: Function
+	validator: Validator
 }
 
 export interface State {

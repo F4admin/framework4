@@ -1,40 +1,45 @@
 import { Component, h, Prop, State } from "@stencil/core"
-import formStore, { FormInput } from "../../utils/formStore"
+import formStore, { FormInput, Validator } from "../../utils/formStore"
 
-// interface Validator {
-//     validator   : Function,
-//     error       : string
-// }
+interface CommonValidators {
+    [key: string]: Validator
+}
 
-// interface CommonValidators {
-//     number: Validator
-// }
+const commonValidators: CommonValidators = {
+    number: {
+        validator: value => {
+            return !isNaN(parseFloat(value))
+        },
+        error: 'El valor ingresado no es un número válido'
+    }
+}
 
-// const commonValidators: CommonValidators = {
-//     number: {
-//         validator: value => {
-//             return !isNaN(parseFloat(value))
-//         },
-//         error: 'El valor ingresado no es un número válido'
-//     }
-// }
+const getValidator = (type: string) => {
+    if (commonValidators[type] === undefined) {
+        return {
+            validator: () => true
+        }
+    }
+    return commonValidators[type]
+}
 
-// commonValidators['number'] = {
-//     validator: value => {
-//         return !isNaN(parseFloat(value))
-//     },
-//     error: 'El valor ingresado no es un número válido'
-// }
+const getType = (type: string) => {
+    switch (type) {
+        case 'text':
+            return 'text'
+        default:
+            return 'text'
+    }
+}
 
 @Component({
 	tag: "f4-form-input",
+    shadow: true,
 })
 export class Input {
 	@Prop() name: string
 	@Prop() type: string = "text"
-	@Prop() inputs: FormInput[]
-	@Prop() registerInput: Function
-	@Prop() customValidator: Function
+	@Prop() customValidator: Validator
 	@State() value: string
 	@State() currentInput: FormInput
 
@@ -44,9 +49,7 @@ export class Input {
 			type: this.type,
 			validator: this.customValidator
 				? this.customValidator
-				: () => {
-						return true
-				  },
+				: getValidator(this.type)
 		}
 		formStore.registerInput(this.currentInput)
 	}
@@ -59,9 +62,9 @@ export class Input {
 		return (
 			<input
 				name={this.name}
-				value={this.value}
-				type={this.type}
+				type={getType(this.type)}
 				onChange={this._handleChange}
+                value={this.value}
 			/>
 		)
 	}

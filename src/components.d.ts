@@ -5,20 +5,18 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FormInput } from "./utils/formStore";
+import { Validator } from "./utils/formStore";
 import { Route } from "./utils/moduleStore";
 import { Column } from "./utils/tableStore";
-export { FormInput } from "./utils/formStore";
+export { Validator } from "./utils/formStore";
 export { Route } from "./utils/moduleStore";
 export { Column } from "./utils/tableStore";
 export namespace Components {
     interface F4Form {
     }
     interface F4FormInput {
-        "customValidator": Function;
-        "inputs": FormInput[];
+        "customValidator": Validator;
         "name": string;
-        "registerInput": Function;
         "type": string;
     }
     interface F4Link {
@@ -150,10 +148,8 @@ declare namespace LocalJSX {
     interface F4Form {
     }
     interface F4FormInput {
-        "customValidator"?: Function;
-        "inputs"?: FormInput[];
+        "customValidator"?: Validator;
         "name"?: string;
-        "registerInput"?: Function;
         "type"?: string;
     }
     interface F4Link {
