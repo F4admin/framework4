@@ -4,6 +4,7 @@ import formStore, { FormInput } from '../../utils/formStore'
 @Component({
 	tag: "f4-form",
     shadow: true,
+    styleUrl: './form.scss'
 })
 export class Form {
 	@State() inputs: FormInput[] = []
@@ -21,10 +22,15 @@ export class Form {
         formStore.registerInput = this.registerInput
 
 		return (
-			<div>
-				<form onSubmit={this._handleSubmit}>
-					<slot />
-				</form>
+			<div id="formWrapper">
+                <div id="formInner">
+                    <form onSubmit={this._handleSubmit}>
+                        <slot />
+                        <div id="formSubmit">
+                            Submit
+                        </div>
+                    </form>
+                </div>
 			</div>
 		)
 	}

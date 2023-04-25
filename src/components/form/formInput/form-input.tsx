@@ -1,5 +1,5 @@
 import { Component, h, Prop, State } from "@stencil/core"
-import formStore, { FormInput, Validator } from "../../utils/formStore"
+import formStore, { FormInput, Validator } from "../../../utils/formStore"
 
 interface CommonValidators {
     [key: string]: Validator
@@ -35,10 +35,13 @@ const getType = (type: string) => {
 @Component({
 	tag: "f4-form-input",
     shadow: true,
+    styleUrl: './form-input.scss'
 })
 export class Input {
 	@Prop() name: string
 	@Prop() type: string = "text"
+    @Prop() label: string
+    @Prop() placeholder: string
 	@Prop() customValidator: Validator
 	@State() value: string
 	@State() currentInput: FormInput
@@ -60,12 +63,21 @@ export class Input {
 
 	render() {
 		return (
-			<input
-				name={this.name}
-				type={getType(this.type)}
-				onChange={this._handleChange}
-                value={this.value}
-			/>
+            <div  id="formInputWrapper">
+                <label>
+                    {
+                        this.label
+                    }
+                </label>
+                <input
+                    name={this.name}
+                    type={getType(this.type)}
+                    onChange={this._handleChange}
+                    value={this.value}
+                    placeholder={this.placeholder}
+                />
+            </div>
+			
 		)
 	}
 }

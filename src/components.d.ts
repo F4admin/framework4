@@ -16,7 +16,9 @@ export namespace Components {
     }
     interface F4FormInput {
         "customValidator": Validator;
+        "label": string;
         "name": string;
+        "placeholder": string;
         "type": string;
     }
     interface F4Link {
@@ -149,7 +151,9 @@ declare namespace LocalJSX {
     }
     interface F4FormInput {
         "customValidator"?: Validator;
+        "label"?: string;
         "name"?: string;
+        "placeholder"?: string;
         "type"?: string;
     }
     interface F4Link {

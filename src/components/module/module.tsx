@@ -9,6 +9,7 @@ const Router = createRouter()
 @Component({
 	tag: "f4-module",
 	shadow: true,
+    styleUrl: "./module.scss"
 })
 export class Module {
 	@Prop() endpoint: string = ""
@@ -34,7 +35,7 @@ export class Module {
 	render() {        
         
 		return (
-			<div>
+			<div id="moduleWrapper">
                 <div>
                     <Router.Switch>
                         {moduleState.routes.map((value) => (
