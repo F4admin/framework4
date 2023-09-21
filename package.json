@@ -39,7 +39,7 @@
 		"@apollo/client": "^3.7.12",
 		"@stencil/core": "^3.2.1",
 		"@stencil/state-tunnel": "^1.0.1",
-		"graphql": "^16.6.0",
+		"graphql": "^16.8.1",
 		"graphql-tag": "^2.12.6",
 		"shortid": "^2.2.16"
 	}
